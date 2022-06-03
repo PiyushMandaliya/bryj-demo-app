@@ -15,14 +15,17 @@ class TBMainVC: TBDataLoadingVC  {
     var webView: WKWebView  =   WKWebView()
     var pageType:PageTitle!
     
+    
     init(pageType: PageTitle) {
         super.init(nibName: nil, bundle: nil)
         self.pageType = pageType
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,7 @@ extension TBMainVC {
         webView.allowsBackForwardNavigationGestures = true
     }
     
+    
     func getPageURL() -> String {
         switch pageType {
         case .Home:
@@ -65,6 +69,7 @@ extension TBMainVC {
         }
     }
     
+    
     func evaluateJavaScript(script: String) {
         webView.evaluateJavaScript(script, completionHandler: nil)
     }
@@ -78,10 +83,12 @@ extension TBMainVC: WKNavigationDelegate {
         showLoadingView()
     }
     
+    
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         print("Error \(error.localizedDescription)")
         dismissLoadingView()
     }
+    
     
     func webView(_ webView: WKWebView,didFinish navigation: WKNavigation!) {
         let js = "document.getElementById('header-container').style.display = 'none';"
@@ -91,6 +98,7 @@ extension TBMainVC: WKNavigationDelegate {
 }
 
 extension TBMainVC: TBHeaderViewDelegate {
+    
     func didTapMenu() {
         let js = "document.getElementsByClassName('navbar-toggler')[0].click();"
         evaluateJavaScript(script: js)

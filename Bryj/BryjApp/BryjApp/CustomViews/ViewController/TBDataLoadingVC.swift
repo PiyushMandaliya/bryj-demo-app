@@ -11,7 +11,6 @@ class TBDataLoadingVC: UIViewController {
     var containerView: UIView!
 
     func showLoadingView() {
-        print(self.view.safeAreaLayoutGuide.bottomAnchor)
         containerView                   = UIView()
         view.addSubview(containerView)
         containerView.backgroundColor   = .systemBackground
@@ -20,7 +19,7 @@ class TBDataLoadingVC: UIViewController {
         
         UIView.animate(withDuration: 0.25) {   self.containerView.alpha = 0.8 }
         
-        let activityIndicator   = UIActivityIndicatorView(style: .large)
+        let activityIndicator           = UIActivityIndicatorView(style: .large)
         containerView.addSubview(activityIndicator)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         

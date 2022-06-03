@@ -12,8 +12,8 @@ class TBTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .black
-        viewControllers          = [createHomeNavigationController(), creatShopNavigationController(),
-                                    createAccountNavigationController(), createBagNavigationController()]
+        viewControllers                 = [createHomeNavigationController(), creatShopNavigationController(),
+                                           createAccountNavigationController(), createBagNavigationController()]
     }
     
     func createHomeNavigationController() -> UINavigationController {
@@ -25,7 +25,7 @@ class TBTabBarController: UITabBarController {
     
     func creatShopNavigationController() -> UINavigationController {
         let shopVC              = TBMainVC(pageType: PageTitle.Shop)
-        let itemImage               = Image.shop?.resizeImage(width: 25.0, height: 25.0)
+        let itemImage           = Image.shop?.resizeImage(width: 25.0, height: 25.0)
         shopVC.tabBarItem       = UITabBarItem(title: PageTitle.Shop.rawValue, image: itemImage, tag: 1)
         return UINavigationController(rootViewController: shopVC)
     }
